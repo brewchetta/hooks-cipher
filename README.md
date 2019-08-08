@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hooks and Cyphers
 
-## Available Scripts
+You've been hired by the FBI to build out an app that automatically uses cyphers to encode their secret messages. Once a phrase has been input, the newly encoded phrase only exists for about ten seconds before it self destructs. The good news is that the FBI has provided the cyphers, the bad news is that they want you to build the app using React hooks!
 
-In the project directory, you can run:
+(To be clear, the cypher is the code we put the message through, not the message itself :P)
 
-### `npm start`
+## What Are Hooks?
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In React, hooks are
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+TODO: get formal definition
 
-### `npm test`
+Hooks can only be used in functional components which means a purely hook based application won't have any need for class components. They allow a functional component to use many of their class based siblings' functionality like holding state or calling functions when the component mounts.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## The Challenge
 
-### `npm run build`
+Components:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+app --> should have just two sub components
+--> states: current cypher
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+cardsList --> holds a bunch of cards, allows to add a new message card
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+cards --> when a phrase is put in, user can hit 'translate' to change it's state. Once 'translate' has been hit, the countdown begins
+--> states: phrase, isTranslated, countdown
+--> effects:
+1. Whenever this updates, its background color changes
+2. When this updates and isTranslated has been set to true, this will create a setInterval that reduces the countdown every second and destroys the message when it hits zero
 
-### `npm run eject`
+current cypher --> dropdown that points to at least a couple different cypher functions that take in a phrase and puts out a translation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Things to use with hooks:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+useState
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+useEffect --> simulate didMount, didUpdate, willUnmount
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+custom hooks --> not sure what to do with this but we can do something
