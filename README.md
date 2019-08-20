@@ -76,7 +76,7 @@ useEffect( () => console.log(fancyNewState) )
 
 Our `useEffect` takes in a callback function which fires when the component mounts and every single update after. Think of it as a combination of `componentDidMount` and `componentDidUpdate`.
 
-The component has a handy way of controlling how often its effect fires as well. If we pass in an array of variables as the second argument, our `useEffect` hook will only fire when those variables change:
+The component has a handy way of controlling how often its effect fires as well. If we pass in a dependency array of variables as the second argument, our `useEffect` hook will only fire when those variables change:
 
 ```
 useEffect( () => console.log(fancyNewState), [fancyNewState] )
@@ -89,6 +89,8 @@ And what if we want our hook to only fire on the initial render, similar to `com
 ```
 useEffect( () => console.log('Your component has mounted'), [] )
 ```
+
+A note on the array: if you use anything declared outside of the `useEffect` hook it generally has to be added to the dependency array. Read more about it at the bottom of this page: https://reactjs.org/docs/hooks-effect.html
 
 One final bit of functionality for the `useEffect` hook is that we occasionally want to clean up the side effects we create with it. Imagine we created something like `setInterval` and needed to remove it when the component unmounts. The way we clean it up is by returning a function in our callback function that clears the timeout:
 
