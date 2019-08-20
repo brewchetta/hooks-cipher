@@ -1,5 +1,5 @@
 // React
-import React, {useState} from 'react';
+import React from 'react';
 // Components
 import CipherSelector from './CipherSelector'
 import MessageCard from './MessageCard'
@@ -9,10 +9,9 @@ import '../App.css';
 function App() {
 
   /* Use hooks to declare your State here */
-  const [currentCipher, setCurrentCipher] = useState('caesarsCipher')
 
   const chooseCurrentCipher = event => {
-    setCurrentCipher(event.target.value)
+
   }
 
   return (
@@ -21,9 +20,9 @@ function App() {
 
       {/* Pass down props as needed to the child components */}
 
-      <CipherSelector {...{currentCipher, chooseCurrentCipher}} />
+      <CipherSelector chooseCurrentCipher={chooseCurrentCipher} />
 
-      <MessageCard currentCipher={currentCipher} />
+      <MessageCard />
 
     </div>
   );
