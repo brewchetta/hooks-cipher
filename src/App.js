@@ -1,23 +1,25 @@
-// React
-import React, {useState} from 'react';
+// React (don't forget to import our new hooks)
+import React from 'react';
+// Ciphers
+import {caesarsCipher, backwardsCipher} from './ciphers'
 // Styling
-import '../App.css';
+import './App.css';
 
 function App() {
 
   /* Use hooks here to set the state for the current input */
 
   const handleSelectorChange = event => {
-    // Now that we have a hook for the current cipher, how do we set it here?
+    // Set state for current cipher here
   }
 
   const handleInputChange = event => {
-    // When we type in the message, we ought to hold it in state as well!
+    // Set state for form input here
   }
 
   const handleSubmit = event => {
     event.preventDefault()
-    // Somewhere in here we update some state which sets off a countdown timer
+    // Somewhere in here we need to update state which sets off a countdown timer
   }
 
   /* Import useEffect and think carefully */
