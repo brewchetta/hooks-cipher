@@ -39,7 +39,8 @@ function App() {
 
       <p>Super Secret Message:</p>
 
-      {/* Create a controlled form that holds the secret message in state and, once submitted, encodes the message and begins a countdown to erase it */}
+      {/* Create a controlled form that holds the secret message in state and */}
+      {/* Once submitted, it encodes the message with the current cipher and begins a countdown to erase it */}
       <form onSubmit={handleSubmit}>
         <input type='text' onChange={handleInputChange} value='' placeholder='Secrets go here' />
         <input type='submit' value='Decode Message' />
