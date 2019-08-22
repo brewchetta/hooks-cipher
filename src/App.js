@@ -43,7 +43,7 @@ function App() {
       {/* Once submitted, it encodes the message with the current cipher and begins a countdown to erase it */}
       <form onSubmit={handleSubmit}>
         <input type='text' onChange={handleInputChange} value='' placeholder='Secrets go here' />
-        <input type='submit' value='Decode Message' />
+        <input type='submit' value='Encode Message' />
       </form>
 
     </div>
