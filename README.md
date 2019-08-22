@@ -125,20 +125,20 @@ The empty array we passed the component ensures it will only fire when the compo
 
 ## The Challenge
 
-You've been hired by a company that sources self-destructing message technology for the FBI, CIA, MI6, Men in Black, and Dark Brotherhood. They want you to build out an app that automatically uses cyphers to decode their secret messages. Once a phrase has been input, the newly decoded phrase only exists for about five seconds before it self destructs.
+You've been hired by a company that sources self-destructing message technology for the FBI, CIA, MI6, Men in Black, and Dark Brotherhood. They want you to build out an app that automatically uses cyphers to encode their secret messages. Once a phrase has been input, the newly encoded phrase only exists for about five seconds before it self destructs.
 
 The company provided the ciphers but they need to use the most cutting edge technology: React Hooks!
 
-The app is partially set up. You have a main `App` and beneath that in the component tree are the `MessageCard` and `CipherSelector`.
+The app is partially set up. Everything lives in the App file (you can optionally code and add more ciphers later if you want).
 
-The `CipherSelector` is a simple dropdown that determines which high tech cipher to use. Make sure this is a controlled form.
+The first part of the app is a simple dropdown meant to save our current high tech cipher in state. Make sure this is a controlled form.
 
-The `MessageCard` has a controlled form where agents can write their secret messages. Once the user presses decode, the form should disappear and be replaced by the decoded message. After 5 seconds, the message resets and becomes the empty form again (essentially it 'self-destructs').
+The second part is a form where agents can write their secret messages. Make this a properly controlled form. When the form gets submitted, it should get replaced by an encoded message and a timeout will begin that 'self-destructs' the message by setting its state to blank.
 
 Things to be aware of:
 - You can utilize `useState` and `useEffect` several times in the same component.
 - Timers are side effects and ought to be cleaned up once they're done.
-- Carefully consider when you want `useEffect` to fire.
+- Carefully consider how you want `useEffect` to fire.
 - You can use conditionals like normal in the `useEffect` callback function.
 
-Bonus: Once a message has been decoded, it creates a visual countdown timer.
+Bonus: Once a message has been encoded, it creates a visual countdown timer.
